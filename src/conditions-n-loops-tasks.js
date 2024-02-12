@@ -169,8 +169,14 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const len = str.length;
+  for (let i = 0; i < len / 2; i += 1) {
+    if (str[i] !== str[len - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -209,8 +215,15 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let number = num;
+  while (number > 0) {
+    if (number % 10 === digit) {
+      return true;
+    }
+    number = Math.floor(number / 10);
+  }
+  return false;
 }
 
 /**
@@ -288,8 +301,17 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const a = arr;
+  for (let i = 0; i < a.length; i += 1) {
+    for (let j = i + 1; j < a.length; j += 1) {
+      if (a[i] > a[j]) {
+        const temp = arr[i];
+        a[i] = a[j];
+        a[j] = temp;
+      }
+    }
+  }
 }
 
 /**
